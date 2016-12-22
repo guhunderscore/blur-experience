@@ -13,5 +13,13 @@
 !/log/.keep
 !/tmp/.keep
 
+public/uploads/
+public/assets/
+/config/database.yml
+/db/schema.rb
+
+.env
+.ruby-gemset
+
 # Ignore Byebug command history file.
 .byebug_history
