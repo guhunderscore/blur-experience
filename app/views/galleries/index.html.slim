@@ -1,0 +1,6 @@
+h1 Galleries#index
+= link_to 'New', new_gallery_path
+
+- @galleries.each do |gallery|
+	.label = gallery.title
+	= link_to 'Destroy', gallery, method: :delete, data: { confirm: 'Are you sure?' }

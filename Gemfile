@@ -41,11 +41,13 @@ gem 'slim', '~> 3.0', '>= 3.0.7'
 gem 'bootstrap', '~> 4.0.0.alpha5'
 gem 'react-rails'
 gem 'carrierwave', '~> 1.0.0.rc'
+gem "mini_magick"
 gem 'simple_form', '~> 3.3', '>= 3.3.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'pry-rails'
 end
 
 group :development do
