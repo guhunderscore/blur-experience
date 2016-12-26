@@ -1,6 +1,26 @@
+p#notice = notice
 h1 Galleries#index
+
 = link_to 'New', new_gallery_path
 
-- @galleries.each do |gallery|
-	.label = gallery.title
-	= link_to 'Destroy', gallery, method: :delete, data: { confirm: 'Are you sure?' }
+table
+	thead
+		tr
+			td #
+			td Title
+			td Description
+			td Thank To
+			td
+	tbody
+		- @galleries.each do |gallery|
+			tr
+				td 
+					- if gallery.image.present?
+						= image_tag gallery.image.thumb.url, class: 'img-thumbnail'
+				td = gallery.title
+				td = gallery.description
+				td = gallery.thank_to
+				td
+					= link_to 'Edit', edit_gallery_path(gallery)
+					| &nbsp;| 
+					= link_to 'Destroy', gallery, method: :delete, data: { confirm: 'Are you sure?' }

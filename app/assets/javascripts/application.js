@@ -20,4 +20,6 @@
 //= require react_ujs
 //= require components
 
+//= require blueimp-gallery
+
 //= require_tree .

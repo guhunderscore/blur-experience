@@ -24,7 +24,7 @@ class GalleriesController < ApplicationController
   end
 
   def update
-  	if @gallery.update(gallery_paramsl)
+  	if @gallery.update(gallery_params)
   		redirect_to @gallery, notice: 'Gallery was successfully updated.'
   	else
   		render :edit
@@ -32,6 +32,7 @@ class GalleriesController < ApplicationController
   end
 
   def destroy
+  	@gallery.remove_image!
   	@gallery.destroy
 		redirect_to galleries_url, notice: 'Gallery was successfully destroyed.'
   end
