@@ -1,0 +1,19 @@
+- content_for :javascripts
+  = javascript_include_tag 'galleries'
+
+p#notice = notice
+
+.container
+	#blueimp-gallery.blueimp-gallery
+	  .slides
+	  h3.title
+	  a.prev ‹
+	  a.next ›
+	  a.close ×
+	  a.play-pause
+	  ol.indicator
+
+	#links
+		- @galleries.each do |gallery|
+			= link_to gallery.image.url, title: gallery.title
+				= image_tag gallery.image.thumb.url, alt: gallery.title

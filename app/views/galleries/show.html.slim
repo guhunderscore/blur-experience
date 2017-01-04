@@ -4,7 +4,7 @@ p
   = @gallery.title
 p
   strong Image:
-  = @gallery.image
+  = image_tag @gallery.image.thumb.url, class: 'img-thumbnail img-responsive'
 
-= link_to 'Edit', edit_gallery_path(@gallery)
-= link_to 'Back', galleries_path
+= link_to 'Edit', edit_gallery_path(@gallery), class: 'btn btn-link'
+= link_to 'Back', galleries_path, class: 'btn btn-link'

@@ -10,6 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require js-routes
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
@@ -22,4 +23,3 @@
 
 //= require blueimp-gallery
 
-//= require_tree .

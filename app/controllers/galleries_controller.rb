@@ -2,7 +2,15 @@ class GalleriesController < ApplicationController
 	before_action :set_gallery, only: [:show, :edit, :update, :destroy]
 
   def index
-  	@galleries = Gallery.all
+  	# @galleries = Gallery.all
+    respond_to do |format|
+      format.html
+      
+      format.json do
+        galleries = Gallery.all
+        render json: galleries
+      end
+    end
   end
 
   def show; end
@@ -11,7 +19,7 @@ class GalleriesController < ApplicationController
   	@gallery = Gallery.new
   end
 
-  def edit; end
+  
 
   def create
   	@gallery = Gallery.new(gallery_params)
@@ -34,7 +42,11 @@ class GalleriesController < ApplicationController
   def destroy
   	@gallery.remove_image!
   	@gallery.destroy
-		redirect_to galleries_url, notice: 'Gallery was successfully destroyed.'
+
+    respond_to do |format|
+      format.html { redirect_to galleries_url, notice: 'Gallery was successfully destroyed.' }
+      format.json { render json: { error: [] }, status: 200 }
+    end
   end
 
   private
