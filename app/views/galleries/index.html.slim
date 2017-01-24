@@ -1,26 +1,35 @@
-p#notice = notice
-h1 Galleries#index
+.container
+	p#notice = notice
+	h4 Galleries#index
 
-= link_to 'New', new_gallery_path
+	= link_to 'New', new_gallery_path, class: 'btn btn-outline-primary btn-sm'
+	/ = render 'form'
+	/ = react_component('GalleryForm', gallery: @gallery)
+	br
+	br
+	= react_component('GalleryPage', listGalleries: @galleries)
+	/ = react_component('Gallery', galleries: @galleries)
 
-table
-	thead
-		tr
-			td #
-			td Title
-			td Description
-			td Thank To
-			td
-	tbody
-		- @galleries.each do |gallery|
-			tr
-				td 
-					- if gallery.image.present?
-						= image_tag gallery.image.thumb.url, class: 'img-thumbnail'
-				td = gallery.title
-				td = gallery.description
-				td = gallery.thank_to
-				td
-					= link_to 'Edit', edit_gallery_path(gallery)
-					| &nbsp;| 
-					= link_to 'Destroy', gallery, method: :delete, data: { confirm: 'Are you sure?' }
+	/ table.table.table-striped
+	/ 	thead
+	/ 		tr
+	/ 			td #
+	/ 			td Title
+	/ 			td Description
+	/ 			td Thank To
+	/ 			td
+	/ 	tbody
+	/ 		- @galleries.each do |gallery|
+	/ 			tr
+	/ 				td 
+	/ 					- if gallery.image.present?
+	/ 						= image_tag gallery.image.thumb.url, class: 'img-thumbnail img-responsive'
+	/ 				td = gallery.title
+	/ 				td = gallery.description.truncate(50, omission: '...(continued)')
+	/ 				td = gallery.thank_to
+	/ 				td
+	/ 					= link_to 'Show', gallery_path(gallery)
+	/ 					| &nbsp;|
+	/ 					= link_to 'Edit', edit_gallery_path(gallery)
+	/ 					| &nbsp;|
+	/ 					= link_to 'Destroy', gallery, method: :delete, data: { confirm: 'Are you sure?' }

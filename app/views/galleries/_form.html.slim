@@ -9,17 +9,17 @@
 	    - @gallery.errors.full_messages.each do |message|
 	      li = message
 	
-	.col-md-12
+	.form-group
 		= f.label :image
 		= f.input_field :image, as: :file, class: 'form-control'
-	.col-md-12
+	.form-group
 		= f.label :title
 		= f.input_field :title, class: 'form-control'
-	.col-md-12
+	.form-group
 		= f.label :description
 		= f.input_field :description, class: 'form-control'
-	.col-md-12
+	.form-group
 		= f.label :thank_to
 		= f.input_field :thank_to, class: 'form-control'
-	.col-md-12
+	.form-group
 		= f.submit 'Save', class: 'btn btn-primary btn-md'

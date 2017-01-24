@@ -1,5 +1,6 @@
 .container
-	h1 New Gallery
-	= render 'form'
+	.col-md-12
+		h4 New Gallery
+		= render 'form'
 
-	= link_to 'Back', galleries_path
+	= link_to 'Back', galleries_path, class: 'btn btn-link'

@@ -44,6 +44,8 @@ gem 'carrierwave', '~> 1.0.0.rc'
 gem "mini_magick"
 gem 'simple_form', '~> 3.3', '>= 3.3.1'
 gem 'blueimp-gallery'
+gem 'js-routes'
+gem 'sprockets-coffee-jsx'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
