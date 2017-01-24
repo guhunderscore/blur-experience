@@ -20,8 +20,6 @@ class GalleriesController < ApplicationController
   	@gallery = Gallery.new
   end
 
-  
-
   def create
     @gallery = Gallery.new(gallery_params)
     # binding.pry
@@ -38,10 +36,14 @@ class GalleriesController < ApplicationController
   end
 
   def update
-  	if @gallery.update(gallery_params)
-  		redirect_to @gallery, notice: 'Gallery was successfully updated.'
-  	else
-  		render :edit
+    respond_to do |format|
+    	if @gallery.update(gallery_params)
+    		format.html { redirect_to @gallery, notice: 'Gallery was successfully updated.' }
+        format.json { render json: @gallery, status: 200 }
+    	else
+        format.html { render :edit }
+        format.json { render json: @gallery.errors.full_message, status: :unprocessable_entity }
+      end
   	end
   end
 
