@@ -2,15 +2,16 @@ class GalleriesController < ApplicationController
 	before_action :set_gallery, only: [:show, :edit, :update, :destroy]
 
   def index
-  	# @galleries = Gallery.all
-    respond_to do |format|
-      format.html
+  	@galleries = Gallery.all
+    @gallery = Gallery.new
+    # respond_to do |format|
+    #   format.html
       
-      format.json do
-        galleries = Gallery.all
-        render json: galleries
-      end
-    end
+    #   format.json do
+    #     galleries = Gallery.all
+    #     render json: galleries
+    #   end
+    # end
   end
 
   def show; end
@@ -22,13 +23,18 @@ class GalleriesController < ApplicationController
   
 
   def create
-  	@gallery = Gallery.new(gallery_params)
+    @gallery = Gallery.new(gallery_params)
+    # binding.pry
 
-  	if @gallery.save
-  		redirect_to @gallery, notice: 'Gallery was successfully created.'
-  	else
-  		render :new
-  	end
+    respond_to do |format|
+    	if @gallery.save
+        format.html { redirect_to @gallery, notice: 'Gallery was successfully created.' }
+        format.json { render json: @gallery, status: 200 }
+    	else
+        format.html { render :new }
+        format.json { render json: @gallery.errors.full_message, status: :unprocessable_entity }
+    	end
+    end
   end
 
   def update

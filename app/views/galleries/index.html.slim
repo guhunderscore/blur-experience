@@ -3,9 +3,12 @@
 	h4 Galleries#index
 
 	= link_to 'New', new_gallery_path, class: 'btn btn-outline-primary btn-sm'
+	/ = render 'form'
+	/ = react_component('GalleryForm', gallery: @gallery)
 	br
 	br
-	= react_component('Gallery')
+	= react_component('GalleryPage', listGalleries: @galleries)
+	/ = react_component('Gallery', galleries: @galleries)
 
 	/ table.table.table-striped
 	/ 	thead
