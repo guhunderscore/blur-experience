@@ -46,6 +46,8 @@ gem 'simple_form', '~> 3.3', '>= 3.3.1'
 gem 'blueimp-gallery'
 gem 'js-routes'
 gem 'sprockets-coffee-jsx'
+gem 'blockchain', '~> 2.0'
+gem "typhoeus"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

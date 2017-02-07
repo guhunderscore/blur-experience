@@ -14,6 +14,9 @@ p#notice = notice
 	  ol.indicator
 
 	#links
-		- @galleries.each do |gallery|
-			= link_to gallery.image.url, title: gallery.title
-				= image_tag gallery.image.thumb.url, alt: gallery.title
+		/ - @galleries.each do |gallery|
+		/ 	= link_to gallery.image.url, title: gallery.title
+		/ 		= image_tag gallery.image.thumb.url, alt: gallery.title
+
+
+= JSON.parse(@response_body).html_safe
